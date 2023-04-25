@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Django Crypto</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <nav class="relative inline-flex items-center justify-between px-2 py-3 w-full bg-rose-500 mb-3">
+      <div class="container px-4 mx-auto flex items-center justify-between">
+        <div class="w-full relative justify-between lg:w-auto  px-4 lg:static block lg:justify-start">
+          <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white" href="{% url 'index' %}">
+            Django Crypto
+          </a>
+        </div>
+        <div class="lg:flex flex-grow items-center">
+          <ul class="flex flex-col lg:flex-row list-none ml-auto">
+              <li class="nav-item">
+                <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="{% url 'about' %}">
+                  About
+                </a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container mx-auto">
+      <h1 class="text-3xl text-center py-6">Crypto Prices</h1>
+      <div class="block w-full overflow-x-auto py-6 ">
+        <table class="items-center w-full bg-transparent border-collapse">
+          <thead>
+            <tr>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Crypto</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">USD</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">EUR</th>
+              <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">GBP</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Bitcoin
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.BTC.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.BTC.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.BTC.GBP}}
+              </td>
+            </tr>
+            
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Ethereum
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.ETH.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.ETH.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.ETH.GBP}}
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Litecoin
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.LTC.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.LTC.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.LTC.GBP}}
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Cardano
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.ADA.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.ADA.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.ADA.GBP}}
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Dogecoin
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.DOGE.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.DOGE.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.DOGE.GBP}}
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Ripple
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.XRP.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.XRP.EUR}}</td>
+                <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.XRP.GBP}}
+                </td>
+              
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                EOS
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.EOS.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.EOS.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.EOS.GBP}}
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Stellar
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.XLM.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.XLM.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.XLM.GBP}}
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Bitcoin Cash
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.BCH.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                € {{price.BCH.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.BCH.GBP}}
+              </td>
+
+            </tr>
+
+            <tr>
+              <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                Tether
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$ {{price.USDT.USD}}</td>
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                €  {{price.USDT.EUR}}
+              <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">£ 
+                {{price.USDT.GBP}}
+              </td>
+
+
+          </tbody>
+        </table>
+      </div>
+      <section class="mt-10 container mx-auto">
+        <h1 class="text-3xl text-center">Latest News</h1>
+        <div class='flex flex-col gap-4 mt-10'>
+          {% for item in api.Data %}
+            <div class="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+              <div class="md:flex items-center -mx-10">
+                  <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                      <div class="relative">
+                          <img src="{{item.imageurl}}" class="w-full relative z-10" alt="">
+                          <div class="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-1/2 px-10">
+                      <div class="mb-10">
+                          <h1 class="font-bold uppercase text-2xl mb-5">{{item.title}}</h1>
+                          <p class="text-sm">{{item.body}}</p>
+                      </div>
+                      
+                  </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+      
+    </div>
+
+    </body>
+</html>
